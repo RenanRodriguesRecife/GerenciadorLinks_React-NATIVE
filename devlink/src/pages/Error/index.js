@@ -1,8 +1,16 @@
+import './erro.css'
+
+import { Link } from 'react-router-dom'
+
 export default function Error(){
     return(
-        <div>
+        <div className="error">
             <h1>Página não encontrada</h1>
             <p>Essa página que está procurando não existe</p>
+
+            <Link className="link" to="/">
+            Voltar para home
+            </Link>
         </div>
     )
 }
