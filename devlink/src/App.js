@@ -1,21 +1,22 @@
-export default function App(){
-  return(
-    <div>
-      <h1>Meu primeiro projeto</h1>
-      <br/>
-      <Aluno nome="Lucas Luna" curso="Tester"/>
+import { createBrowserRouter } from 'react-router-dom'
 
-      <Aluno nome="Luna" curso="Dev"/>
-    </div>
-  )
-}
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Admin from './pages/Admin'
 
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home/>
+  },
+  {
+    path: '/login',
+    element: <Login/>
+  },
+  {
+    path: '/admin',
+    element: <Admin/>
+  }
+])
 
-function Aluno({nome, curso}){
-  return(
-    <div>
-      <h2>Bem vindo {nome}</h2>
-      <h3>Curso atual: {curso}</h3>
-    </div>
-  )
-}
+export { router }
