@@ -10,8 +10,8 @@ Mini curso do Canal Sujeito programador
 - [x] - Criar página not found
 - [x] - Começar a página home
 
-- [ ] - Finalizar a página home
-- [ ] - Criar nossa página de login
+- [x] - Finalizar a página home
+- [x] - Criar nossa página de login
 - [ ] - Criar nosso sistema de login
 - [ ] - Enviar o usuário após logar para página Admin
 
