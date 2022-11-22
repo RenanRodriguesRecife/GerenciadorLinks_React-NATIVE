@@ -12,8 +12,8 @@ Mini curso do Canal Sujeito programador
 
 - [x] - Finalizar a página home
 - [x] - Criar nossa página de login
-- [ ] - Conhecer e configurar o firebase
-- [ ] - Enviar o usuário após logar para página Admin
+- [x] - Conhecer e configurar o firebase
+- [x] - Enviar o usuário após logar para página Admin
 
 React js do zero - Aula 01 Iniciando sua jornada! - https://www.youtube.com/watch?v=K-njDh5pfLo&t=283s
 
