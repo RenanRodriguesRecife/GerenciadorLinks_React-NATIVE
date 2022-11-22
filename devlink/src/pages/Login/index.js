@@ -10,9 +10,14 @@ export default function Login(){
 
     function handleLogin(e){
         e.preventDefault();
+
+        if(email === ''|| password === ''){
+            alert("Preencha todos os campos!")
+            return;
+        }
         console.log(email)
         console.log(password)
-        alert("Teste")
+        
     }
 
     return(
