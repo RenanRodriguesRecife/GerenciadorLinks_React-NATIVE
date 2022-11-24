@@ -64,6 +64,16 @@ export default function Admin(){
                     onChange={(e)=>setNameInput(e.target.value)}
                 />
 
+                <label className="label">URL do Link</label>
+
+                <Input
+                    type="url"
+                    placeholder="URL do Link..."
+                    value={urlInput}
+                    onChange = {(e) => setUrlInput(e.target.value)}
+                />
+
+
                 <section className="container-colors">
                     <div>
                         <label className="label right">Fundo do Link</label>
