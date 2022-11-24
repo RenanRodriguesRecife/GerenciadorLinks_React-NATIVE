@@ -20,3 +20,6 @@ React js do zero - Aula 01 Iniciando sua jornada! - https://www.youtube.com/watc
 React js do zero - Aula 02 Evoluindo nossa aplicação - https://www.youtube.com/watch?v=CM5QxulxnSg
 
 
+-- Falta configurar o banco de dados no firebase (fazer a relações do social link com o usuário) --
+
+-- Falta fazer o deploy no netlify -- 
