@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./admin.css";
 import { Header } from "../../components/Header";
 import { Logo } from "../../components/Logo";
@@ -18,6 +18,7 @@ import {
     deleteDoc,
     connectFirestoreEmulator,
 }from "firebase/firestore";
+import { async } from "@firebase/util";
 
 export default function Admin(){
     const [nameInput, setNameInput] = useState("");
@@ -25,6 +26,27 @@ export default function Admin(){
     const [backgroundColorInput, setBackgroundColorInput] = useState("#f1f1f1");
     const [textColorInput, setTextColorInput] = useState("#121212");
     
+    const [links, setLinks] = useState([]);
+
+    useEffect(() =>{
+        const linksRef = collection(db,"links");
+        const queryRef = query(linksRef, orderBy("created", "asc"));
+        onSnapshot(queryRef, (snapshot)=>{
+            let lista = [];
+
+            snapshot.forEach((doc)=>{
+                lista.push({
+                    id: doc.id,
+                    name: doc.data().name,
+                    url: doc.data().url,
+                    bg: doc.data().bg,
+                    color: doc.data().color,
+                })
+            })
+            setLinks(lista)
+        })
+    },[])
+
     async function handleRegister(e){
         e.preventDefault();
         if(nameInput === "" || urlInput === ""){
@@ -49,7 +71,12 @@ export default function Admin(){
         });
     }
 
-
+    
+    async function handleDeleteLink(id){
+        const docRef = doc(db,"links",id);
+        await deleteDoc(docRef);
+        toast.success("Link Deletado!");
+    }
     
     return(
         <div className="admin-container">
@@ -117,7 +144,7 @@ export default function Admin(){
 
             <h2 className="title">Meus Links</h2>
 
-            <article
+            {/* <article
                 className="list animate-pop"
                 style={{background: "#000",color: "#FFF"}}
                 >
@@ -128,7 +155,24 @@ export default function Admin(){
 
                         </button>
                     </div>
-                </article>
+                </article> */}
+                {links.map((item, index)=>(
+                    <article
+                        key={index}
+                        className="list animate-pop"
+                        style={{background: item.bg,color:item.color}}
+                        >
+                            <p>{item.name}</p>
+                            <div>
+                                <button
+                                className="btn-delete"
+                                onClick={()=>handleDeleteLink(item.id)}
+                                >
+                                    <FiTrash2 size={18} color="#FFF"/>
+                                </button>
+                            </div>
+                        </article>
+                ))}
         </div>
     );
 }
